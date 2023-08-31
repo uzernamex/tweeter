@@ -12,7 +12,7 @@
 .nav {
   display: flex;
   flex-direction: row;
-
+  position: fixed;
   background-color: #4056A1;
   height: 120px;
   width: 100vw;
@@ -28,18 +28,5 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
- 
-
-  /* justify-content: left; */
-  /*align-items: flex-end; */
   font-family: 'Source Sans 3', sans-serif;
-  /* margin-right: auto; */
-  /* padding: 1.5em; */
 }
-/* .a {
-  display: flex;
-  flex-direction: column;
-  align-content: ;
-
-  font-family: 'Source Sans 3', sans-serif;
-} */
