@@ -1,0 +1,45 @@
+
+ html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+.nav {
+  display: flex;
+  flex-direction: row;
+
+  background-color: #4056A1;
+  height: 120px;
+  width: 100vw;
+  font-size: 24px;
+  font-family: 'Bungee', cursive;
+  color: #FFFFFF; 
+  padding: 1.5em;
+  justify-content: space-between;
+}
+
+.i {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+ 
+
+  /* justify-content: left; */
+  /*align-items: flex-end; */
+  font-family: 'Source Sans 3', sans-serif;
+  /* margin-right: auto; */
+  /* padding: 1.5em; */
+}
+/* .a {
+  display: flex;
+  flex-direction: column;
+  align-content: ;
+
+  font-family: 'Source Sans 3', sans-serif;
+} */
