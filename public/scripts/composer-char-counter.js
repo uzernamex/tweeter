@@ -1,9 +1,14 @@
 $(document).ready(function() {
-console.log('ready')
-$('tweeterMessage').on('input', function()) {
-const messageLength = $(this).val().length; 
-const messageLimit = 140; //max 140 characters
-const spaceRemaining = messageLimit - messageLength;
-
-}
+  const messageMax = 140; //max 140 characters
+  $('#tweeter-text').on('input', function() {
+    const messageLength = $(this).val().length;
+    const lettersRemaining = messageMax - messageLength;
+    const $counter = $(this).closest('form').find('.counter');
+    $counter.text(lettersRemaining);
+    if (lettersRemaining <= 0) {
+      $counter.addClass('limit-exceeded');
+    } else {
+      $counter.removeClass('limit-exceeded');
+    }
+  });
 });
