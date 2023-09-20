@@ -50,7 +50,8 @@ const data = [
 
 const renderTweets = function(tweets) {
   // loops through tweets
-const $tweetContainer = $('#tweets-container')
+
+  const $tweetContainer = $('#tweets-container')
 tweets.forEach(function(tweet) {
   const tweetElement = createTweetElement(tweet);
   // takes return value and appends it to the tweets container
@@ -61,6 +62,10 @@ tweets.forEach(function(tweet) {
 
 const createTweetElement = function(tweet) {
   const $tweet = $("<article>").addClass("tweet");
+  $( "form" ).on( "submit", function() {
+    
+    return this.some_flag_variable;
+  } );
 return $tweet;
 }
 
@@ -90,3 +95,19 @@ renderTweets(data);
 
 // const $tweet = $(`<article class="tweet">Hello world</article>`);
 
+$(document).ready(function() {
+  const loadTweets = function() {
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:8080/tweets",
+      success: function(data) {
+        console.log("tweets", data);
+      },
+      error: function(error) {
+        console.error("error:", error);
+      }
+    });
+  }
+
+  loadTweets();
+});

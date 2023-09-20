@@ -1,3 +1,8 @@
-.limit-exceeded {
-  color: red;
-}
+/* <script>
+$(document).ready(function() {
+  $("#tweetForm").on("submit", function(event) {
+    event.preventDefault();
+});
+
+const tweetData = $(this).serialize();
+ */
