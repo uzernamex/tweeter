@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  const messageMax = 140; //max 140 characters
+  const messageMax = 140;
   $('#tweet-text').on('input', function() {
     const messageLength = $(this).val().length;
     const lettersRemaining = messageMax - messageLength;
@@ -13,4 +13,3 @@ $(document).ready(function() {
     }
   });
 });
-

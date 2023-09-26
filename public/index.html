@@ -21,7 +21,7 @@ integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFk
 crossorigin="anonymous" referrerpolicy="no-referrer" />
   
 <!-- App CSS -->
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css">
   <link rel="stylesheet" href="/styles/nav.css" type="text/css">
   <link rel="stylesheet" href="/styles/header.css" type="text/css">
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css">
@@ -68,21 +68,26 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
   <main class="container">
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
-      <form id="tweet">
+      <form id="tweet-form">
         <label for="tweet-text">What are you humming about?</label>
-        <textarea name="text" id="tweet-text"></textarea>
-
-      <div class="timeago" datetime="2016-06-30 09:20:00"></div>
-      
-        
-      <div>
-          <button type="submit">Tweet</button>
-          
+        <textarea name="text" id="tweet-text" required maxlength="140"></textarea>
+        <div>
+          <button type="submit">Tweet</button>  
           <output name="counter" class="counter" for="tweet-text">140</output>       
         </div>
-      </form>
-      
-    
+      </form>  
+    </section>
+
+
+    <section class="tweet-container">
+      <article class="tweet">
+        <p class="tweet-text">12345<span class="timeago" datetime="2023-09-22T10:00:00Z"></span></p>
+       
+        <!-- <div class="actions"
+       <button class="" -->
+
+
+
     </section>
     
    </main>

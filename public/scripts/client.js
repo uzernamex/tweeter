@@ -4,6 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const { json } = require("body-parser");
+
 const tweetData = {
   "user": {
     "name": "Newton",
@@ -45,15 +47,14 @@ $(document).ready(function() {
     const $tweet = $("<article>").addClass("tweet");
     $tweet.append($"<p>").text;
     return $tweet;
-  }
-  
-  const renderTweets = function(tweets) {
-    const $tweetContainer = $('#tweets-container')
-    tweets.forEach(function(tweet) {
+  }const renderTweets = function(tweets) {
+  const $tweetContainer = $('#tweets-container')
+  tweets.forEach(function(tweet) {
     const tweetElement = createTweetElement(tweet);
     $tweetsContainer.append(tweetElement);
   });
 };
+
 
 const loadTweets = function() {
     
@@ -69,7 +70,8 @@ const loadTweets = function() {
     }
   });
 }
-//loadTweets();
+
+loadTweets();
 
 
 ("#tweetForm").on("submit", function(event) {
@@ -79,8 +81,8 @@ const loadTweets = function() {
   
   $.ajax({
     type: "POST",
-    url: "http://localhost:8080/"
-    data: tweetData
+    url: "http://localhost:8080/",
+    data: JSON.stringify(tweetData),
     success: function(response) {
       console.log("response", response);
     },
@@ -90,30 +92,6 @@ const loadTweets = function() {
   });
 });
 });
-
-format(date[, locale = 'en_US', opts])
-
-import { format } from 'timeago.js';
-
-// format timestamp
-format(1544666010224);
-
-// format date instance
-format(new Date(1544666010224));
-
-// format date string
-format('2018-12-12');
-
-// format with locale
-format(1544666010224, 'zh_CN');
-
-// format with locale and relative date
-format(1544666010224, 'zh_CN', { relativeDate: '2018-11-11' });
-
-// e.g.
-format(Date.now() - 11 * 1000 * 60 * 60); // returns '11 hours ago'
-
-
 ///////////
 
 

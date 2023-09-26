@@ -6,3 +6,6 @@ $(document).ready(function() {
 
 const tweetData = $(this).serialize();
  */
+.limit-exceeded {
+  color: red;
+}
