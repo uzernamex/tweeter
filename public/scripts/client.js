@@ -61,6 +61,7 @@ const loadTweets = function() {
   $.ajax({
     type: "GET",
     url: "http://localhost:8080/tweets",
+    dataType: "json",
     success: function(data) {
       renderTweets(data);
       console.log("tweets", data);
@@ -74,7 +75,7 @@ const loadTweets = function() {
 loadTweets();
 
 
-("#tweetForm").on("submit", function(event) {
+$("#tweetForm").on("submit", function(event) {
   event.preventDefault();
   
   const tweetData = $(this).serialize();
@@ -82,17 +83,27 @@ loadTweets();
   $.ajax({
     type: "POST",
     url: "http://localhost:8080/",
+    contentType: "application/json",
     data: JSON.stringify(tweetData),
     success: function(response) {
       console.log("response", response);
+      const nodes = document.querySelectorAll('.timeago');
+      format(Date.now() - 11 * 1000 * 60 * 60); ///////////**** */
+      render(nodes, 'zh_CN');
     },
     error: function(error) {
       console.error("error:", error); 
     }
   });
-});
-});
-///////////
+// });
+
+// import { render, cancel } from 'timeago.js';
+
+
+
+
+// <div class="timeago" datetime="2016-06-30 09:20:00"></div>
+// ///////////
 
 
 // $(document).ready(function() {

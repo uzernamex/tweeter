@@ -80,15 +80,16 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     <section class="tweet-container">
-      <article class="tweet">
-        <p class="tweet-text">12345<span class="timeago" datetime="2023-09-22T10:00:00Z"></span></p>
-       
-        <!-- <div class="actions"
-       <button class="" -->
-
-
-
-    </section>
+      <div class="tweet">
+        <script src="//unpkg.com/timeago.js"></script>
+     
+        <p>Tweets appear here</p> <span class="timeago" datetime="2023-09-22T10:00:00Z"></span>
+</div>
+<form id="tweetForm">
+  <button type="submit">Submit Tweet</button>
+</form>
+<script src="/server/data-files/initial-tweets.json"></script>
+</section>
     
    </main>
 </body>
