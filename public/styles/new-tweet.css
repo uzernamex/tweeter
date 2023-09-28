@@ -1,11 +1,56 @@
-/* <script>
-$(document).ready(function() {
-  $("#tweetForm").on("submit", function(event) {
-    event.preventDefault();
-});
+.tweet-container.tweet {
+  background-color: inherit;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin: 5px;
+  transition: box-shadow 0.3s ease;
 
-const tweetData = $(this).serialize();
- */
+}
+
+
+
+.tweet-button {
+  background-color: #4056A1;
+  color: #f4f1ec;
+  margin: 2em;
+}
+
+.counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 2em;
+}
+.tweet {
+  border: .5em solid saddlebrown;
+  margin: 2em;
+ padding: 1em;
+ border-radius: 8px;
+ border-style: outset;
+  /* border-bottom: 6px solid red; */
+
+}
+.tweet:hover {
+  
+box-shadow: 0 0 2em cornflowerblue
+}
 .limit-exceeded {
   color: red;
 }
+
+
+footer {
+  display: flex;
+  
+  justify-content: flex-end;
+}
+.reactions {
+
+  
+}
+
+#tweet-label {
+  border-bottom: 1px solid grey;
+  padding-bottom: 5px;
+};
