@@ -36,20 +36,33 @@ const renderTweets = function (tweets) {
     $tweetContainer.append(tweetElement);
   });
 };
-  
 
 const createTweetElement = function (tweet) {
-
-
   const $tweet = $("<article>").addClass("tweet");
 
   $tweet.append($("<p>").text(tweet.content.text));
   $tweet.append($("<p>").text(tweet.user.name));
   $tweet.append($("<p>").text(tweet.user.handle));
+  
+  const $icons = $("<div>").addClass("tweet-icons");
+  const $flagIcon = $("<i>").addClass("fa-solid fa-flag fa-fade");
+  const $flagLink = $("<a>").attr("href", "#").append($flagIcon);
+  $icons.append($flagLink); 
+  
+  const $retweetIcon = $("<i>").addClass("fa-solif fa-retweet fa-spin");
+  const $retweetLink = $("<a>").attr("href", "#").append($retweetIcon);
+  $icons.append($retweetLink);
+
+  const $heartIcon = $("<i>").addClass("fa-solid fa-heart fa-beat");
+  const $heartLink = $("<a>").attr("href", "#").append($heartIcon);
+  $icons.append($heartLink);
+
+  $tweet.append($icons);
+  
   return $tweet;
 };
 
-$(document).ready(function () {});
+
 
 const loadTweets = function () {
   $.ajax({

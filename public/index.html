@@ -50,44 +50,23 @@
   </header>
   
 <main class="container">
-
   <section class="new-tweet">
+    <section id="tweets-container"> 
     <h2>Compose Tweet</h2>
-    <form>
+    <form id="tweetForm" method="POST" action="/tweets">
       <label for="tweet-text">What are you humming about?</label>
       <textarea name="text" id="tweet-text"></textarea>
-      <article>
+      <article class="buttons">
         <button type="submit" class="tweet-button">Tweet</button>
         <output name="counter" class="counter" for="tweet-text">140</output>
       </article>
     </form>
+    <script src="../server/data-files/initial-tweets.json"></script>
+    <section class="reactions">
+      <a href="#"><i class="fa-solid fa-flag fa-fade"></i></a>
+      <a href="#"><i class="fa-solid fa-retweet fa-spin"></i></a>
+      <a href="#"><i class="fa-solid fa-heart fa-beat"></i></a> 
   </section>  
-
-
-<section id="tweets-container"> 
-  <form id="tweetForm">
-  <article class="tweet">
-    <p>Tweets appear here
-    <script src="//unpkg.com/timeago.js"></script>
-    <span class="timeago" datetime="2023-09-22T10:00:00Z"></span>
-   <script src="../server/data-files/initial-tweets.json"></script>
-  <section class="reactions">
-    <a href="#"><i class="fa-solid fa-flag fa-fade"></i></a>
-    <a href="#"><i class="fa-solid fa-retweet fa-spin"></i></a>
-    <a href="#"><i class="fa-solid fa-heart fa-beat"></i></a> 
- 
-    </section>
- </p>
-    <!-- <form>
-    <button type="submit">Submit Tweet</button>
-  </form> -->
-   
-
-</section>
-</section>
-
-
 </main>
 </body>
-
 </html>

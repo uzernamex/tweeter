@@ -16,14 +16,16 @@
   background-color: #4056A1;
   color: #f4f1ec;
   margin: 2em;
-}
+  font-family: 'Bungee', cursive;}
 
 .counter {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   margin: 2em;
+  font-family: 'Bungee', cursive;
 }
+
 .tweet {
   border: .5em solid saddlebrown;
   margin: 2em;
