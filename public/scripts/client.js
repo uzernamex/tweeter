@@ -72,19 +72,19 @@ $(document).ready(function () {
   tweetForm.on("submit", function (event) {
     event.preventDefault();
     const tweetData = {
-  tweetText: $("#tweetText").val()
-};
-$.ajax({
-  type: "POST",
-  url: "http://localhost:8080/tweets",
-  contentType: "application/json",
-  data: JSON.stringify(tweetData),
-  success: function (response) {
-    console.log("response", response);
-  },
-  error: function (error) {
-    console.error("error:", error);
-  },
-});
-});
+      tweetText: $("#tweetText").val()
+    };
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:8080/tweets",
+      contentType: "application/json",
+      data: JSON.stringify(tweetData),
+      success: function (response) {
+        console.log("response", response);
+      },
+      error: function (error) {
+        console.error("error:", error);
+      }
+    });
+  });
 });
