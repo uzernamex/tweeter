@@ -29,9 +29,14 @@ const data = [
   },
 ];
 
+// timeago.register('timeOfTweet', localeFunc);
+
 const renderTweets = function (tweets) {
   const $tweetContainer = $("#tweets-container").empty();
   tweets.forEach(function (tweet) {
+    // const $timestamp = $('<p>').addClass('timestamp').attr('datetime, new Date(tweet.created_at));
+    // timeago.render($timestamp[0], 'timeOfTweet');
+
     const tweetElement = createTweetElement(tweet);
     $tweetContainer.append(tweetElement);
   });
@@ -89,10 +94,6 @@ $(document).ready(function () {
     const tweetData = tweetForm.serialize();
     console.log(tweetData);
 
-    
-    // const tweetData = {
-    //   text: $("#tweetText").val()
-    // };
     $.ajax({
       type: "POST",
       url: "http://localhost:8080/tweets",

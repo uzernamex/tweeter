@@ -30,8 +30,13 @@
   margin: 2em;
   font-family: 'Bungee', cursive;
 }
-
+/* .img {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;  
+} */
 .tweet {
+
   border: .5em solid rgb(168, 161, 157);
   margin: 1.5em;
  padding: 1.5em;
@@ -40,6 +45,9 @@
 }
 .tweet:hover {
   box-shadow: 0 0 2em cornflowerblue
+}
+.tweet-icons:hover {
+ color:aqua 
 }
 
 .limit-exceeded {
