@@ -8,7 +8,9 @@
 
 }
 
-
+.new-tweet {
+  border-bottom: 4px  solid saddlebrown; 
+}
 
 .tweet-button {
   background-color: #4056A1;
