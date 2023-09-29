@@ -30,7 +30,7 @@ const data = [
 ];
 
 const renderTweets = function (tweets) {
-  const $tweetContainer = $("#tweets-container");
+  const $tweetContainer = $("#tweets-container").empty();
   tweets.forEach(function (tweet) {
     const tweetElement = createTweetElement(tweet);
     $tweetContainer.append(tweetElement);
@@ -39,17 +39,20 @@ const renderTweets = function (tweets) {
 
 const createTweetElement = function (tweet) {
   const $tweet = $("<article>").addClass("tweet");
-
+  const $avatar = $("<img src=\"" + tweet.user.avatars + "\">").addClass("avatar");
+  
+  $tweet.append($avatar);
   $tweet.append($("<p>").text(tweet.content.text));
   $tweet.append($("<p>").text(tweet.user.name));
   $tweet.append($("<p>").text(tweet.user.handle));
   
   const $icons = $("<div>").addClass("tweet-icons");
+  
   const $flagIcon = $("<i>").addClass("fa-solid fa-flag fa-fade");
   const $flagLink = $("<a>").attr("href", "#").append($flagIcon);
-  $icons.append($flagLink); 
+  $icons.append($flagLink);
   
-  const $retweetIcon = $("<i>").addClass("fa-solif fa-retweet fa-spin");
+  const $retweetIcon = $("<i>").addClass("fa-solid fa-retweet fa-spin");
   const $retweetLink = $("<a>").attr("href", "#").append($retweetIcon);
   $icons.append($retweetLink);
 
@@ -61,7 +64,6 @@ const createTweetElement = function (tweet) {
   
   return $tweet;
 };
-
 
 
 const loadTweets = function () {
@@ -84,16 +86,20 @@ $(document).ready(function () {
   const tweetForm = $("#tweetForm");
   tweetForm.on("submit", function (event) {
     event.preventDefault();
-    const tweetData = {
-      tweetText: $("#tweetText").val()
-    };
+    const tweetData = tweetForm.serialize();
+    console.log(tweetData);
+
+    
+    // const tweetData = {
+    //   text: $("#tweetText").val()
+    // };
     $.ajax({
       type: "POST",
       url: "http://localhost:8080/tweets",
-      contentType: "application/json",
-      data: JSON.stringify(tweetData),
+      contentType: "application/x-www-form-urlencoded",
+      data: tweetData,
       success: function (response) {
-        console.log("response", response);
+        loadTweets();
       },
       error: function (error) {
         console.error("error:", error);

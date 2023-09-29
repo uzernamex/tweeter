@@ -23,7 +23,7 @@
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="//unpkg.com/timeago.js"></script>
+  <!-- <script src="//unpkg.com/timeago.js"></script> -->
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
@@ -49,24 +49,29 @@
     </div>
   </header>
   
-<main class="container">
+<main class="container"> 
+
   <section class="new-tweet">
-    <section id="tweets-container"> 
     <h2>Compose Tweet</h2>
     <form id="tweetForm" method="POST" action="/tweets">
-      <label for="tweet-text">What are you humming about?</label>
-      <textarea name="text" id="tweet-text"></textarea>
+      <label class="tweet-text" for="tweet-text">
+        <textarea name="text" id="tweet-text"class="tweet-text" placeholder="What are you humming about?"></textarea>
+      </label>
       <article class="buttons">
         <button type="submit" class="tweet-button">Tweet</button>
-        <output name="counter" class="counter" for="tweet-text">140</output>
-      </article>
+     
+    </article>
+    <output name="counter" class="counter">140</output>  
     </form>
-    <script src="../server/data-files/initial-tweets.json"></script>
-    <section class="reactions">
-      <a href="#"><i class="fa-solid fa-flag fa-fade"></i></a>
-      <a href="#"><i class="fa-solid fa-retweet fa-spin"></i></a>
-      <a href="#"><i class="fa-solid fa-heart fa-beat"></i></a> 
-  </section>  
-</main>
+  </section>    
+
+
+
+  <section id="tweets-container"> 
+
+  
+   </section>
+
+  </main>
 </body>
 </html>

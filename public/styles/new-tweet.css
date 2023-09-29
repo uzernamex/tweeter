@@ -5,12 +5,17 @@
   padding: 5px;
   margin: 5px;
   transition: box-shadow 0.3s ease;
-
 }
 
-.new-tweet {
-  border-bottom: 4px  solid saddlebrown; 
-}
+ .new-tweet {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5em;
+  padding: .5em;
+
+  background-color: inherit; 
+
+} 
 
 .tweet-button {
   background-color: #4056A1;
@@ -27,34 +32,33 @@
 }
 
 .tweet {
-  border: .5em solid saddlebrown;
-  margin: 2em;
- padding: 1em;
+  border: .5em solid rgb(168, 161, 157);
+  margin: 1.5em;
+ padding: 1.5em;
  border-radius: 8px;
  border-style: outset;
-  /* border-bottom: 6px solid red; */
-
 }
 .tweet:hover {
-  
-box-shadow: 0 0 2em cornflowerblue
+  box-shadow: 0 0 2em cornflowerblue
 }
+
 .limit-exceeded {
   color: red;
 }
 
-
 footer {
-  display: flex;
-  
+  display: flex;  
   justify-content: flex-end;
 }
-.reactions {
 
-  
-}
-
-#tweet-label {
+.tweet-label {
   border-bottom: 1px solid grey;
   padding-bottom: 5px;
 };
+
+#tweet-text {
+  background-color: inherit;
+  display: flex;
+  flex-direction: row;
+
+}
