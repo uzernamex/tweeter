@@ -50,7 +50,6 @@
   </header>
   
 <main class="container"> 
-
   <section class="new-tweet">
     <h2>Compose Tweet</h2>
     <form id="tweetForm" method="POST" action="/tweets">
@@ -61,26 +60,18 @@
         <button type="submit" class="tweet-button">Tweet</button>
     </article>
     <output name="counter" class="counter">140</output>  
-<div name= "error" class="error-alert"></div>
-   
+<div class="error-alert" style="display: none;"></div>
    </form>
   </section>    
 
 
+<section id="tweets-container"> 
+</section>
 
-  <section id="tweets-container"> 
-    <time class="timeago" data-created-at="146116232227">Time Ago</time>
-     <article class="tweet">
-
-</article></section>
+<time class="timeago" data-created-at="146116232227"></time>
+<script type="text/javascript"></script>
 
 
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("time-ago").timeago();
-  });
-
-</script>
   </main>
 </body>
 </html>
