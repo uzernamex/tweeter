@@ -43,15 +43,21 @@ const createTweetElement = function(tweet) {
   const $avatar = $("<img src=\"" + tweet.user.avatars + "\">").addClass("avatar");
   $userDetails.append($avatar);
 
-
   const $nameHandle = $("<div>").addClass("name-handle");
-  $nameHandle.append($("<p>").text(tweet.user.name));
-  $nameHandle.append($("<span>").text(tweet.user.handle));
-  $userDetails.append($nameHandle);
+  const $name = $("<p>").text(tweet.user.name);
+  const $handle = $("<span>").text(tweet.user.handle);
   
+  $nameHandle.append($name, $handle);
+  $userDetails.append($nameHandle);
+
   $tweet.append($userDetails);
   
-  $tweet.append($("<p>").text(tweet.content.text));
+  // $tweet.append($("<p>").text(tweet.content.text));
+  
+  const $tweetLine = $("<div>").addClass("tweet-line");
+  $tweetLine.append($("<p>").text(tweet.content.text));
+  $tweet.append($userDetails);
+  $tweet.append($tweetLine);
   
   const $timestamp = $("<time>").addClass("timeago").attr("datetime", new Date(tweet.created_at));
   $tweet.append($timestamp);
@@ -70,6 +76,7 @@ const createTweetElement = function(tweet) {
   $icons.append($heartLink);
 
   $tweet.append($icons);
+
   
   return $tweet;
 };
@@ -131,15 +138,10 @@ $(document).ready(function() {
 
 loadTweets();
 
-//$("time.timeago").timeago();
 
-// const createdAt = $("div").text(`${timeago.format(tweet.created_at)}`);
 
-// let tweet = {
-//   user: { ... },
-//   content: { ... },
-//   created_at: Date.now() // this ensures a timestamp is saved with the tweet
-// }
 
-// let timestamp = new Date(data.created_at);
-// $('#tweet-timestamp').text(moment(timestamp).fromNow());
+
+$(document).ready(function () {
+  $("time.timeago").timeago();
+});

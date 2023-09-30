@@ -1,4 +1,4 @@
-.tweet-container.tweet {
+/* .tweet-container.tweet {
   background-color: inherit;
  
   justify-content: center;
@@ -6,7 +6,7 @@
   padding: 5px;
   margin: 5px;
   transition: box-shadow 0.3s ease;
-}
+} */
 /* 
 .tweet-container {
   display: block;
@@ -18,9 +18,7 @@
   flex-direction: row;
   margin: 0.5em;
   padding: .5em;
-
   background-color: inherit; 
-
 } 
 
 .tweet-button {
@@ -41,24 +39,25 @@
   flex-direction: row;
   justify-content: right;  
 } */
-.tweet {
 
+.tweet {
   border: .5em solid rgb(168, 161, 157);
   margin: 1.5em;
- padding: 1.5em;
- border-radius: 8px;
- border-style: outset;
+  padding: 1.5em;
+  border-radius: 8px;
+  border-style: outset;
+}
 
-}
 .tweet:hover {
-  box-shadow: 0 0 2em cornflowerblue
+  box-shadow: 0 0 2em rgb(114, 139, 117)
 }
-.tweet-icons:hover {
+/* .tweet-icons:hover {
  color:aqua 
-}
+} */
 
 .limit-exceeded {
-  color: red;
+  color: rgb(194, 4, 4);
+  text-decoration: red wavy overline;
 }
 
 footer {
@@ -75,12 +74,17 @@ footer {
   background-color: inherit;
   display: flex;
   flex-direction: row;
-
 }
 
 
 .tweet-icons a:hover i {
   color: #ff00e6;
+}
+
+.avatar {
+  width: 60px; 
+  height: 60px;
+  margin-right: 10px;
 }
 
 .user-details {
@@ -90,13 +94,26 @@ footer {
 
 .name-handle {
   display: flex;
-  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
 }
 
 .name-handle p {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.user-name {
   margin: 0;
 }
 
-.name-handle span {
-  color:rgb(168, 161, 157)
+.user-handle {
+  color:rgb(168, 161, 157);
+  margin-left: auto;
+}
+
+.tweet-line {
+  border-bottom: 1px solid #ccc; 
+  padding-bottom: 10px;
 }

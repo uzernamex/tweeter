@@ -61,9 +61,7 @@
         <button type="submit" class="tweet-button">Tweet</button>
     </article>
     <output name="counter" class="counter">140</output>  
-
-   <!-- <div class="timeago" ></div> -->
-
+<div name= "error" class="error-alert"></div>
    
    </form>
   </section>    
@@ -71,14 +69,18 @@
 
 
   <section id="tweets-container"> 
-
+    <time class="timeago" data-created-at="146116232227">Time Ago</time>
      <article class="tweet">
 
-    <time class="timeago" datetime="2023-09-29T15:45:00Z"></time>
-  
-  </article>
-   </section>
+</article></section>
 
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("time-ago").timeago();
+  });
+
+</script>
   </main>
 </body>
 </html>
