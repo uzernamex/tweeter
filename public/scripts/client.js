@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
@@ -35,18 +36,26 @@ const data = [
 
 // T W E E T   E L E M E N T S
 
-const createTweetElement = function (tweet) {
+const createTweetElement = function(tweet) {
   const $tweet = $("<article>").addClass("tweet");
+  const $userDetails = $("<div>").addClass("user-details");
+
   const $avatar = $("<img src=\"" + tweet.user.avatars + "\">").addClass("avatar");
+  $userDetails.append($avatar);
+
+
+  const $nameHandle = $("<div>").addClass("name-handle");
+  $nameHandle.append($("<p>").text(tweet.user.name));
+  $nameHandle.append($("<span>").text(tweet.user.handle));
+  $userDetails.append($nameHandle);
   
-  $tweet.append($avatar);
+  $tweet.append($userDetails);
+  
   $tweet.append($("<p>").text(tweet.content.text));
-  $tweet.append($("<p>").text(tweet.user.name));
-  $tweet.append($("<p>").text(tweet.user.handle));
   
   const $timestamp = $("<time>").addClass("timeago").attr("datetime", new Date(tweet.created_at));
   $tweet.append($timestamp);
-
+  
   const $icons = $("<div>").addClass("tweet-icons");
   const $flagIcon = $("<i>").addClass("fa-solid fa-flag fa-fade");
   const $flagLink = $("<a>").attr("href", "#").append($flagIcon);
@@ -55,7 +64,7 @@ const createTweetElement = function (tweet) {
   const $retweetIcon = $("<i>").addClass("fa-solid fa-retweet fa-spin");
   const $retweetLink = $("<a>").attr("href", "#").append($retweetIcon);
   $icons.append($retweetLink);
-
+  
   const $heartIcon = $("<i>").addClass("fa-solid fa-heart fa-beat");
   const $heartLink = $("<a>").attr("href", "#").append($heartIcon);
   $icons.append($heartLink);
@@ -73,10 +82,10 @@ const loadTweets = function() {
     type: "GET",
     url: "http://localhost:8080/tweets",
     dataType: "json",
-    success: function (data) {
+    success: function(data) {
       renderTweets(data);
     },
-    error: function (error) {
+    error: function(error) {
       console.error("error:", error);
     },
   });
@@ -96,7 +105,7 @@ const renderTweets = function (tweets) {
 
 // E V E N T   H A N D L E R
 
-$(document).ready(function () {
+$(document).ready(function() {
   $("time.timeago").timeago();
   const tweetForm = $("#tweetForm");
   tweetForm.on("submit", function (event) {
@@ -109,16 +118,15 @@ $(document).ready(function () {
       url: "http://localhost:8080/tweets",
       contentType: "application/x-www-form-urlencoded",
       data: tweetData,
-      success: function (response) {
+      success: function(response) {
         loadTweets();
       },
-      error: function (error) {
+      error: function(error) {
         console.error("error:", error);
       }
     });
   });
-  
-  loadTweets ();
+// loadTweets();
 });
 
 loadTweets();

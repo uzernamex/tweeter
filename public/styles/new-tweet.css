@@ -1,12 +1,18 @@
 .tweet-container.tweet {
   background-color: inherit;
+ 
   justify-content: center;
   align-items: center;
   padding: 5px;
   margin: 5px;
   transition: box-shadow 0.3s ease;
 }
-
+/* 
+.tweet-container {
+  display: block;
+  flex-direction: row;
+  align-content: stretch;
+} */
  .new-tweet {
   display: flex;
   flex-direction: row;
@@ -42,6 +48,7 @@
  padding: 1.5em;
  border-radius: 8px;
  border-style: outset;
+
 }
 .tweet:hover {
   box-shadow: 0 0 2em cornflowerblue
@@ -69,4 +76,27 @@ footer {
   display: flex;
   flex-direction: row;
 
+}
+
+
+.tweet-icons a:hover i {
+  color: #ff00e6;
+}
+
+.user-details {
+  display: flex;
+  align-items: center;
+}
+
+.name-handle {
+  display: flex;
+  flex-direction: column;
+}
+
+.name-handle p {
+  margin: 0;
+}
+
+.name-handle span {
+  color:rgb(168, 161, 157)
 }
