@@ -4,6 +4,9 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+
+// S A M P L E   T W E E T S
+
 const data = [
   {
     user: {
@@ -29,18 +32,8 @@ const data = [
   },
 ];
 
-// timeago.register('timeOfTweet', localeFunc);
 
-const renderTweets = function (tweets) {
-  const $tweetContainer = $("#tweets-container").empty();
-  tweets.forEach(function (tweet) {
-    // const $timestamp = $('<p>').addClass('timestamp').attr('datetime, new Date(tweet.created_at));
-    // timeago.render($timestamp[0], 'timeOfTweet');
-
-    const tweetElement = createTweetElement(tweet);
-    $tweetContainer.append(tweetElement);
-  });
-};
+// T W E E T   E L E M E N T S
 
 const createTweetElement = function (tweet) {
   const $tweet = $("<article>").addClass("tweet");
@@ -51,8 +44,10 @@ const createTweetElement = function (tweet) {
   $tweet.append($("<p>").text(tweet.user.name));
   $tweet.append($("<p>").text(tweet.user.handle));
   
+  const $timestamp = $("<time>").addClass("timeago").attr("datetime", new Date(tweet.created_at));
+  $tweet.append($timestamp);
+
   const $icons = $("<div>").addClass("tweet-icons");
-  
   const $flagIcon = $("<i>").addClass("fa-solid fa-flag fa-fade");
   const $flagLink = $("<a>").attr("href", "#").append($flagIcon);
   $icons.append($flagLink);
@@ -71,7 +66,9 @@ const createTweetElement = function (tweet) {
 };
 
 
-const loadTweets = function () {
+// F U N C T I O N:   L O A D   T W E E T S   A S Y N C H R O N O U S L Y
+
+const loadTweets = function() {
   $.ajax({
     type: "GET",
     url: "http://localhost:8080/tweets",
@@ -85,15 +82,28 @@ const loadTweets = function () {
   });
 };
 
-loadTweets();
+
+// F U N C T I O N:   R E N D E R   T W E E T S
+
+const renderTweets = function (tweets) {
+  const $tweetContainer = $("#tweets-container").empty();
+  tweets.forEach(function (tweet) {
+    const tweetElement = createTweetElement(tweet);
+    $tweetContainer.append(tweetElement);
+  });
+};
+
+
+// E V E N T   H A N D L E R
 
 $(document).ready(function () {
+  $("time.timeago").timeago();
   const tweetForm = $("#tweetForm");
   tweetForm.on("submit", function (event) {
     event.preventDefault();
     const tweetData = tweetForm.serialize();
     console.log(tweetData);
-
+    
     $.ajax({
       type: "POST",
       url: "http://localhost:8080/tweets",
@@ -107,4 +117,21 @@ $(document).ready(function () {
       }
     });
   });
+  
+  loadTweets ();
 });
+
+loadTweets();
+
+//$("time.timeago").timeago();
+
+// const createdAt = $("div").text(`${timeago.format(tweet.created_at)}`);
+
+// let tweet = {
+//   user: { ... },
+//   content: { ... },
+//   created_at: Date.now() // this ensures a timestamp is saved with the tweet
+// }
+
+// let timestamp = new Date(data.created_at);
+// $('#tweet-timestamp').text(moment(timestamp).fromNow());
