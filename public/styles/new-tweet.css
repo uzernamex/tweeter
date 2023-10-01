@@ -1,59 +1,57 @@
-/* .tweet-container.tweet {
-  background-color: inherit;
- 
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  margin: 5px;
-  transition: box-shadow 0.3s ease;
-} */
-/* 
-.tweet-container {
-  display: block;
-  flex-direction: row;
-  align-content: stretch;
-} */
- .new-tweet {
+#tweetForm {
   display: flex;
-  flex-direction: row;
-  margin: 0.5em;
-  padding: .5em;
+  flex-direction: column;
+  width: 100%;
   background-color: inherit; 
 } 
 
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  width: 100%;
+  background-color: inherit; 
+}
 .tweet-button {
+  display: flex;
+  flex-direction: row;
+align-items: flex-start;
   background-color: #4056A1;
   color: #f4f1ec;
   margin: 2em;
   font-family: 'Bungee', cursive;}
 
+
+.tweet-button:hover {
+  box-shadow: 4px 4px 4px rgb(114, 139, 117)
+}
+
 .counter {
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
   justify-content: flex-end;
   margin: 2em;
   font-family: 'Bungee', cursive;
 }
-/* .img {
-  display: flex;
-  flex-direction: row;
-  justify-content: right;  
-} */
 
 .tweet {
+  display: flex;
+  flex-direction: column;
   border: .5em solid rgb(168, 161, 157);
   margin: 1.5em;
   padding: 1.5em;
   border-radius: 8px;
   border-style: outset;
+  position: relative;
+
 }
 
+
 .tweet:hover {
-  box-shadow: 0 0 2em rgb(114, 139, 117)
+  box-shadow: 8px 8px 8px rgb(114, 139, 117)
 }
-/* .tweet-icons:hover {
- color:aqua 
-} */
 
 .limit-exceeded {
   color: rgb(194, 4, 4);
@@ -74,8 +72,26 @@ footer {
   background-color: inherit;
   display: flex;
   flex-direction: row;
+  border: none;
+  width: 100%;
 }
 
+.tweet-text {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+background-color: inherit;
+border: none;
+  padding: 1.5em;
+}
+
+.tweet-icons {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 1.112782372637826em;
+  right: 1em;
+}
 
 .tweet-icons a:hover i {
   color: #ff00e6;
@@ -114,6 +130,6 @@ footer {
 }
 
 .tweet-line {
-  border-bottom: 1px solid #ccc; 
+  border-bottom: 2px solid rgb(0, 0, 0); 
   padding-bottom: 10px;
 }

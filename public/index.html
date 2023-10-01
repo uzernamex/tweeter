@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+
   <!-- Meta Information -->
   <title>Tweeter - Home Page</title>
   
@@ -24,13 +24,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
 </head>
 <body>
-
   <!-- Top nav bar (fixed) -->
   <nav class="nav">tweeter
     <div class="i">
@@ -45,33 +44,34 @@
     </div>
     <br>
     <div>
-      <h2>Your Name</h2>
+      <h2>Sevyn Costanza</h2>
     </div>
   </header>
   
-<main class="container"> 
-  <section class="new-tweet">
-    <h2>Compose Tweet</h2>
-    <form id="tweetForm" method="POST" action="/tweets">
-      <label class="tweet-text" for="tweet-text">
-        <textarea name="text" id="tweet-text"class="tweet-text" placeholder="What are you humming about?"></textarea>
-      </label>
-      <article class="buttons">
+  <main class="container">
+    <section class="new-tweet">
+      <h2>Compose Tweet</h2>
+      <form id="tweetForm" method="POST" action="/tweets">
+        <label class="tweet-text" for="tweet-text">
+          <textarea name="text" id="tweet-text"class="tweet-text" placeholder="What are you humming about?">
+
+          </textarea>
+        </label>
+        <div class="tweet-line">
+
+        </div>
+        <article class="buttons">
+        <output name="counter" class="counter">140</output>  
         <button type="submit" class="tweet-button">Tweet</button>
-    </article>
-    <output name="counter" class="counter">140</output>  
-<div class="error-alert" style="display: none;"></div>
-   </form>
-  </section>    
+      </article>
+      <div class="error-alert-empty" style="display: none;"></div>
+      <div class="error-alert-overkill" style="display: none;"></div>
+      <div class="error-alert" style="display: none;"></div>
+    </form>
+  </section>
+  <section id="tweets-container">
 
-
-<section id="tweets-container"> 
-</section>
-
-<time class="timeago" data-created-at="146116232227"></time>
-<script type="text/javascript"></script>
-
-
-  </main>
+  </section>
+</main>
 </body>
 </html>

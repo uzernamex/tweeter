@@ -5,9 +5,9 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
+
+/* STYLING: NAVIGATION BAR: */
+
 .nav {
   display: flex;
   flex-direction: row;
