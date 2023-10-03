@@ -112,14 +112,28 @@ const showErrorOverkill = function(message) {
   
 // T W E E T   S U B M I S S I O N
 
+const hideErrorMessage = function() {
+  $(".error-alert-empty").slideUp();
+  $(".error-alert-overkill").slideUp();
+  $(".error-alert").slideUp();
+};
+
+$("#tweet-text").on("click", function() {
+  hideErrorMessage();
+});
+
 const submitTweet = function() {
   const tweetContent = $("#tweet-text").val();
-  hideError();
-  
-  if (!tweetContent) {
+  // hideErrorMessage();
+  if (!tweetContent) { 
     showErrorEmpty("Alert: Message cannot be empty.");
+    $("#tweet-text").on("click", function() {
+      hideErrorMessage();
+});
+  
   } else if (tweetContent.length > 140) {
     showErrorOverkill("Alert: Message is way too long to post here!");
+
   } else {
     const tweetData = $("#tweetForm").serialize();
     $.ajax({
@@ -141,6 +155,15 @@ const submitTweet = function() {
 
 $(document).ready(function() {
   const tweetForm = $("#tweetForm");
+
+  // $("#tweet-text").on("click", function() {
+  //   hideErrorMessage();
+  // });
+
+  $("#tweetForm").on("keydown", function() {
+    hideErrorMessage();
+  });
+
   tweetForm.on("submit", function(event) {
     event.preventDefault();
     submitTweet();
