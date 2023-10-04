@@ -31,6 +31,7 @@
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
 </head>
+<div class="wrapper">
 <body>
   <!-- Top nav bar (fixed) -->
   <nav class="nav">tweeter
@@ -46,26 +47,23 @@
     </div>
     <br>
     <div>
-      <h2>Sevyn Costanza</h2>
+      <h2>Your Name</h2>
     </div>
   </header>
   
   <main class="container">
     <section class="new-tweet">
-      <h2>Compose Tweet</h2>
+      <div></div>
+      <!-- <h2> Compose Tweet <i class="fa-solid fa-angles-down fa-bounce" style="color: #ff0000;"></i></h2> -->
       <form id="tweetForm" method="POST" action="/tweets">
         <label class="tweet-text" for="tweet-text">
-          <textarea name="text" id="tweet-text"class="tweet-text" placeholder="What are you humming about?">
-
-          </textarea>
+          <textarea name="text" id="tweet-text"class="tweet-text" placeholder="What are you humming about?"></textarea>
         </label>
-        <div class="tweet-line">
-
-        </div>
         <article class="buttons">
-        <output name="counter" class="counter">140</output>  
+        <output id="char-counter" name="counter" class="counter">140</output>  
         <button type="submit" class="tweet-button">Tweet</button>
-      </article>
+      </article>  <div class="tweet-line">
+        </div>
       <div class="error-alert-empty" style="display: none;"></div>
       <div class="error-alert-overkill" style="display: none;"></div>
       <div class="error-alert" style="display: none;"></div>
@@ -76,4 +74,5 @@
   </section>
 </main>
 </body>
+</div>
 </html>

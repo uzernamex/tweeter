@@ -50,13 +50,13 @@ const createTweetElement = function(tweet) {
   $tweet.append($timestamp);
   
   const $icons = $("<div>").addClass("tweet-icons");
-  const $flagIcon = $("<i>").addClass("fa-solid fa-flag fa-fade");
-  const $retweetIcon = $("<i>").addClass("fa-solid fa-retweet fa-spin");
-  const $heartIcon = $("<i>").addClass("fa-solid fa-heart fa-beat");
+  const $flagIcon = $("<i>").addClass("fa-solid fa-flag fa-fade ");
+  const $retweetIcon = $("<i>").addClass("fa-solid fa-retweet fa-spin ");
+  const $heartIcon = $("<i>").addClass("fa-solid fa-heart fa-beat ");
   $icons.append(
     $("<a>").attr("href", "#").append($flagIcon),
-    $("<a>").attr("href", "#").append($retweetIcon),
-    $("<a>").attr("href", "#").append($heartIcon)
+    $("<a>").attr("href", "#").append($retweetIcon," "),
+    $("<a>").attr("href", "#").append($heartIcon, " ")
   );
   $tweet.append($icons);
   
@@ -68,7 +68,7 @@ const createTweetElement = function(tweet) {
 
 const renderTweets = function (tweets) {
   const $tweetContainer = $("#tweets-container").empty();
-  tweets.reverse()
+  tweets.reverse();
   tweets.forEach(function(tweet) {
     const tweetElement = createTweetElement(tweet);
     $tweetContainer.append(tweetElement);
@@ -108,7 +108,6 @@ const showErrorOverkill = function(message) {
   $errorAlert2.text(message).slideDown();
 };
 
-
   
 // T W E E T   S U B M I S S I O N
 
@@ -124,16 +123,13 @@ $("#tweet-text").on("click", function() {
 
 const submitTweet = function() {
   const tweetContent = $("#tweet-text").val();
-  // hideErrorMessage();
-  if (!tweetContent) { 
+  if (!tweetContent) {
     showErrorEmpty("Alert: Message cannot be empty.");
     $("#tweet-text").on("click", function() {
       hideErrorMessage();
-});
-  
+    });
   } else if (tweetContent.length > 140) {
     showErrorOverkill("Alert: Message is way too long to post here!");
-
   } else {
     const tweetData = $("#tweetForm").serialize();
     $.ajax({
@@ -142,6 +138,7 @@ const submitTweet = function() {
       contentType: "application/x-www-form-urlencoded",
       data: tweetData,
       success: function(response) {
+        document.getElementById("char-counter").textContent = "140";
         $("#tweet-text").val("");
         hideError();
         loadTweets();
@@ -154,21 +151,20 @@ const submitTweet = function() {
 };
 
 $(document).ready(function() {
+  const $tweetText = $("#tweet-text");
+  const $counter = $tweetText.siblings(".buttons").find(".counter");
+  $counter.text(140)
+  
   const tweetForm = $("#tweetForm");
-
-  // $("#tweet-text").on("click", function() {
-  //   hideErrorMessage();
-  // });
 
   $("#tweetForm").on("keydown", function() {
     hideErrorMessage();
   });
-
+  
   tweetForm.on("submit", function(event) {
     event.preventDefault();
     submitTweet();
   });
-  
   loadTweets();
   $("time.timeago").timeago();
 });

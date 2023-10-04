@@ -8,18 +8,20 @@ html {
 
 /* STYLING: NAVIGATION BAR: */
 
-.nav {
-  display: flex;
-  flex-direction: row;
-  position: fixed;
-  background-color: #4056A1;
-  height: 120px;
-  width: 100vw;
-  font-size: 40px;
-  font-family: 'Bungee', cursive;
-  color: #FFFFFF; 
-  padding: 1.5em;
-  justify-content: space-between;
+@media screen and (max-width: 768px) {
+  .nav {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    background-color: solid #4056A1;
+    height: 120px;
+    width: 100vw;
+    font-size: 40px;
+    font-family: 'Bungee', cursive;
+    color: #FFFFFF; 
+    padding: 1.5em;
+    justify-content: space-between;
+  }
 }
 
 .i {

@@ -76,15 +76,6 @@ footer {
   width: 100%;
 }
 
-.tweet-text {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-background-color: inherit;
-border: none;
-  padding: 1.5em;
-}
-
 .tweet-icons {
   display: flex;
   flex-direction: row;
