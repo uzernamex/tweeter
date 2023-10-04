@@ -1,5 +1,4 @@
-// T W E E T   D A T A
-
+// TWEET INFORMATION FOR USERS
 const data = [
   {
     user: {
@@ -26,15 +25,16 @@ const data = [
 ];
 
 
-// T W E E T   E L E M E N T S
-
+// TWEET ELEMENTS:
 const createTweetElement = function(tweet) {
   const $tweet = $("<article>").addClass("tweet");
   const $userDetails = $("<div>").addClass("user-details");
 
+// APPEND AN IMAGE FOR A USER
   const $avatar = $("<img src=\"" + tweet.user.avatars + "\">").addClass("avatar");
   $userDetails.append($avatar);
 
+// ATTACH THE NAME AND HANDLE FOR THE USER
   const $nameHandle = $("<div>").addClass("name-handle");
   const $name = $("<p>").text(tweet.user.name);
   const $handle = $("<span>").text(tweet.user.handle);
@@ -42,13 +42,16 @@ const createTweetElement = function(tweet) {
   $nameHandle.append($name, $handle);
   $userDetails.append($nameHandle);
   $tweet.append($userDetails);
-  
+
+// ADD THE USER'S TWEET CONTENT
   const $tweetLine = $("<div>").addClass("tweet-line").append($("<p>").text(tweet.content.text));
   $tweet.append($tweetLine);
 
+// FORMAT AND DISPLAY THE TIME A TWEET WAS CREATED
   const $timestamp = $("<div>").addClass("timeago").text(timeago.format(tweet.created_at));
   $tweet.append($timestamp);
   
+// ADD THE REACTION BUTTONS ('FLAG', 'RETWEET', 'LIKE')
   const $icons = $("<div>").addClass("tweet-icons");
   const $flagIcon = $("<i>").addClass("fa-solid fa-flag fa-fade ");
   const $retweetIcon = $("<i>").addClass("fa-solid fa-retweet fa-spin ");
@@ -64,8 +67,7 @@ const createTweetElement = function(tweet) {
 };
 
 
-// F U N C T I O N:   R E N D E R   T W E E T S
-
+// FUNCTION: RENDER TWEETS - EMPTY THE TWEET CONTAINER, THEN DISPLAY TWEETS BEGINNING WITH THE MOST RECENT
 const renderTweets = function (tweets) {
   const $tweetContainer = $("#tweets-container").empty();
   tweets.reverse();
@@ -76,8 +78,7 @@ const renderTweets = function (tweets) {
 };
 
 
-// F U N C T I O N:   L O A D   T W E E T S   A S Y N C H R O N O U S L Y
-
+// FUNCTION: LOAD TWEETS ASYNCHRONOUSLY [W/ AJAX]
 const loadTweets = function() {
   $.ajax({
     type: "GET",
@@ -92,9 +93,7 @@ const loadTweets = function() {
   });
 };
 
-
-// E R R O R --> Message length
-
+// DISPLAY AN ERROR MESSAGE FOR AN EMPTY TWEET
 const showErrorEmpty = function(message) {
   const $errorAlert1 = $(".error-alert-empty");
   $errorAlert1.text(message).slideDown();
@@ -103,13 +102,14 @@ const hideError = function() {
   const $errorAlert = $(".error-alert");
   $errorAlert.text("").slideUp();
 };
+//DISPLAY AN ERROR MESSAGE IF THE TWEET IS MORE THAN 140 CHARACTERS
 const showErrorOverkill = function(message) {
   const $errorAlert2 = $(".error-alert-overkill");
   $errorAlert2.text(message).slideDown();
 };
 
   
-// T W E E T   S U B M I S S I O N
+// TWEET SUBMISSION
 
 const hideErrorMessage = function() {
   $(".error-alert-empty").slideUp();

@@ -172,6 +172,7 @@ main {
 };
 
 /* STYLING FOR THE SINGLE-COLUMN LAYOUT FOR SCREENS 498-468px */
+
 @media screen and (max-width: 768px) {
   .navigation {
     flex-direction: column;

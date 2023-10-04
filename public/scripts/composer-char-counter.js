@@ -1,3 +1,5 @@
+//CODE TO DISPLAY THE REMAINING NUMBER OF CHARACTERS
+
 $(document).ready(function() {
   const messageMax = 140;
   $('#tweet-text').on('input', function() {
