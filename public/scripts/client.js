@@ -66,9 +66,8 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
-
 // FUNCTION: RENDER TWEETS - EMPTY THE TWEET CONTAINER, THEN DISPLAY TWEETS BEGINNING WITH THE MOST RECENT
-const renderTweets = function (tweets) {
+const renderTweets = function(tweets) {
   const $tweetContainer = $("#tweets-container").empty();
   tweets.reverse();
   tweets.forEach(function(tweet) {
@@ -76,7 +75,6 @@ const renderTweets = function (tweets) {
     $tweetContainer.append(tweetElement);
   });
 };
-
 
 // FUNCTION: LOAD TWEETS ASYNCHRONOUSLY [W/ AJAX]
 const loadTweets = function() {
@@ -108,9 +106,7 @@ const showErrorOverkill = function(message) {
   $errorAlert2.text(message).slideDown();
 };
 
-  
 // TWEET SUBMISSION
-
 const hideErrorMessage = function() {
   $(".error-alert-empty").slideUp();
   $(".error-alert-overkill").slideUp();
@@ -153,7 +149,7 @@ const submitTweet = function() {
 $(document).ready(function() {
   const $tweetText = $("#tweet-text");
   const $counter = $tweetText.siblings(".buttons").find(".counter");
-  $counter.text(140)
+  $counter.text(140);
   
   const tweetForm = $("#tweetForm");
 
